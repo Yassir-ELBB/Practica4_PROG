@@ -14,6 +14,18 @@ public class trampa {
         fracaso = 0;
     }
 
+    public trampa(String categoria){
+        setCategoria(categoria);
+        setPerjuicio(this.perjuicio);
+        setFracaso(this.fracaso);
+    }
+
+    public trampa(trampa copia){
+        this.perjuicio = copia.perjuicio;
+        this.fracaso = copia.fracaso;
+        this.categoria = copia.categoria;
+    }
+
     public String getCategoria(){
         return categoria;
     }
@@ -47,11 +59,10 @@ public class trampa {
     public void setPerjuicio(int Cperjuicio) {
         if(Cperjuicio < 5 || Cperjuicio > 20){
             System.err.println("Por favor elija un valor entre 5 y 20");
-        } else System.out.println("Tu prejuicio es de: "+Cperjuicio);
-        perjuicio = Cperjuicio;
+        } else perjuicio = Cperjuicio;
     }
 
-    public void Fracaso(double Pfracaso) {
+    public void setFracaso(double Pfracaso) {
         Random f = new Random();
         double random;
         random = (f.nextDouble()*0.75)*100;
