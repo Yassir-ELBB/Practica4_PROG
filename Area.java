@@ -19,6 +19,17 @@ public class Area {
         this.nivel = nivel;
     }
 
+    public  Area(String area, String bioma){
+        setBioma(bioma);
+        setArea(area);
+    }
+
+    public Area(Area copia){
+        this.area = copia.area;
+        this.bioma = copia.bioma;
+        this.nivel = copia.nivel;
+    }
+
 
     public int getNivel() {
         return nivel;
@@ -37,7 +48,7 @@ public class Area {
     public void setArea(String ponerArea) {
         if (ponerArea.equals("") || ponerArea.equals(" ")) {
             System.err.println("Error. El nombre de Area no es correcto");
-        } else System.out.println("Tu Area es : " + ponerArea);
+        } else ponerArea = area;
     }
 
     public void setBioma(String ponerBioma) {
@@ -58,15 +69,15 @@ public class Area {
             case "Mazmorra":
                 System.out.println("Has elegido Mazmorra");
                 break;
-
             default:
                 System.err.println("Por favor seleccione un bioma correcto");
         }
+        ponerBioma = bioma;
     }
 
 
 
-    public void asignarNivel(String AsignadoNivel) {
+    public void setasignarNivel(String AsignadoNivel) {
         switch (AsignadoNivel) {
             case "Pradera":
                 System.out.println("La Pradera tiene un nivel entre 1 y 10.");
