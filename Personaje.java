@@ -26,6 +26,30 @@ public class Personaje {
         this.nombre = nombre;
     }
 
+    public Personaje (String nombre){
+     setNombre(nombre);
+     setnivel(1);
+     Random r = new Random();
+     setpv(r.nextInt(101));
+     setatq(r.nextInt(101));
+     setdef(r.nextInt(101));
+    }
+
+    public Personaje (String nombre, int nivel){
+        setNombre(nombre);
+        setnivel(nivel);
+        Random r = new Random();
+        setpv(r.nextInt(101));
+
+    }
+
+    public Personaje (Personaje copia){
+        this.nombre = copia.nombre;
+        this.pv = copia.pv;
+        this.def = copia.def;
+        this.atq = copia.atq;
+        this.nivel = copia.nivel;
+    }
 
 
     public String getNombre(){
@@ -51,7 +75,7 @@ public class Personaje {
     public void setNombre(String n){
         if( n.equals("") || n.equals("GM") || n.equals("2") ){
             System.err.println("Error. El nombre no es correcto");
-        }else System.out.println("Hola: "+n+", Bienvenido");
+        }else nombre = n;
     }
 
     public void setpv(int puntosVida){
@@ -59,7 +83,7 @@ public class Personaje {
             System.err.println("Error. Pv no puede ser menor de cero");
         }else{
             pv = puntosVida;
-            System.out.println("Tienes: "+pv+" Puntos de vida");
+
         }
 
     }
@@ -69,7 +93,7 @@ public class Personaje {
             System.err.println("Error. EL atque no puede ser menor que cero");
         }else{
             atq = puntosAtq;
-            System.out.println("Tienes: "+atq+" Puntos de ataque");
+
         }
 
     }
@@ -79,17 +103,17 @@ public class Personaje {
             System.err.println("Error. La defensa no puede ser menor que 0");
         }else{
             def = puntosDef;
-            System.out.println("Tienes: "+def+" Puntos de defensa");
+
         }
 
     }
 
-    public void nivel(int puntosNivel){
+    public void setnivel(int puntosNivel){
         if(puntosNivel < 1 || nivel > 100){
             System.err.println("Error. El nivel no es correcto");
         }else{
             nivel = puntosNivel;
-            System.out.println("Tu nivel es de: "+nivel);
+
         }
     }
 
